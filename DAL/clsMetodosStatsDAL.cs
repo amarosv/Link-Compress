@@ -171,8 +171,9 @@ namespace link_compress_api.DAL
         /// Función que crea los stats de un click para el link compress dado su id
         /// </summary>
         /// <param name="urlId">ID del link compress</param>
+        /// <param name="ip">Ip del usuario</param>
         /// <returns>Número de filas afectadas</returns>
-        public static async Task<int> createStatsDAL(int urlId)
+        public static async Task<int> createStatsDAL(int urlId, String ip)
         {
             int numeroFilasAfectadas = 0;
 
@@ -186,14 +187,13 @@ namespace link_compress_api.DAL
 
                 miComando.Parameters.Add("@urlid", MySql.Data.MySqlClient.MySqlDbType.Int64).Value = urlId;
 
-                String[] ubicacion = await getLocation();
+                String[] ubicacion = await getLocation(ip);
 
                 String country = ubicacion[0];
                 String city = ubicacion[1];
 
                 miComando.Parameters.Add("@country", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = country;
                 miComando.Parameters.Add("@city", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = city;
-
 
                 miComando.CommandText = "INSERT INTO STATS (URL_ID, COUNTRY, CITY) VALUES (@urlid, @country, @city)";
 
@@ -216,18 +216,15 @@ namespace link_compress_api.DAL
         /// <summary>
         /// Método que obtiene la ubicación
         /// </summary>
+        /// <param name="ip">Ip del usuario</param>
         /// <returns>Array de String que contiene el país y la ciudad</returns>
-        private static async Task<string[]> getLocation()
+        private static async Task<string[]> getLocation(String ip)
         {
             string[] data = new string[2];
 
             using HttpClient client = new();
             try
             {
-                // Obtener la IP pública
-                string ipResponse = await client.GetStringAsync("https://api.ipify.org");
-                string ip = ipResponse.Trim();
-
                 // Obtener la ubicación basada en la IP
                 string url = $"http://ip-api.com/json/{ip}?lang=en";
                 string respuesta = await client.GetStringAsync(url);
@@ -245,6 +242,5 @@ namespace link_compress_api.DAL
 
             return data;
         }
-
     }
 }

@@ -5,43 +5,47 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregar servicios al contenedor
+// Agregar servicios
 builder.Services.AddControllers();
-
-// Configuración de Swagger y su explorador de endpoints
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    // Aquí agregamos el filtro de operación para eliminar de Swagger las rutas que no queremos
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "Link Compress API", Version = "v1" });
-    options.EnableAnnotations(); // Habilitar anotaciones
-
+    options.EnableAnnotations();
 });
 
 var app = builder.Build();
 
-// Configuración de la solicitud HTTP
+// Habilitar Swagger
 app.UseSwagger();
 app.UseSwaggerUI();
 
+// Habilitar HTTPS
 app.UseHttpsRedirection();
 app.UseAuthorization();
 
+// Habilitar archivos estáticos
+app.UseDefaultFiles(); // Habilita index.html automáticamente
+app.UseStaticFiles();  // Permite servir archivos de wwwroot
+
 app.MapControllers();
 
-// Mapea la ruta personalizada pero sin exponerla en Swagger
+// Ruta personalizada
 app.MapGet("/{alias}", (string alias, HttpContext context) =>
 {
-    string url = clsMetodosURLBL.getLongUrlByAliasBL(alias);
+    var ip = context.Request.Headers["X-Forwarded-For"].FirstOrDefault();
+    if (!string.IsNullOrEmpty(ip)) ip = ip.Split(',')[0].Trim();
+    if (string.IsNullOrEmpty(ip)) ip = context.Connection.RemoteIpAddress?.ToString();
+    if (string.IsNullOrEmpty(ip)) ip = "No se pudo obtener la IP del usuario.";
 
-    // Si la URL es válida y no es la misma que la actual
+    string url = clsMetodosURLBL.getLongUrlByAliasBL(alias, ip);
     if (!string.IsNullOrEmpty(url))
     {
-        // Realiza la redirección
         context.Response.Redirect(url, false);
     }
 })
 .ExcludeFromDescription();
 
+// Escuchar en el puerto 5000
+app.Run("http://0.0.0.0:5000");
 
-app.Run("http://0.0.0.0:5000"); // Escucha en el puerto 5000

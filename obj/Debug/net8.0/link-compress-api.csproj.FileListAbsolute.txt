@@ -59,3 +59,4 @@ C:\Users\amsuv\Documents\link-compress\link-compress-api\link-compress-api\bin\D
 C:\Users\amsuv\Documents\link-compress\link-compress-api\link-compress-api\bin\Debug\net8.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\amsuv\Documents\link-compress\link-compress-api\link-compress-api\bin\Debug\net8.0\Swashbuckle.AspNetCore.Annotations.dll
 C:\Users\amsuv\Documents\link-compress\link-compress-api\link-compress-api\obj\Debug\net8.0\link-compress-api.sourcelink.json
+C:\Users\amsuv\Documents\link-compress\link-compress-api\link-compress-api\bin\Debug\net8.0\link-compress-api.staticwebassets.runtime.json

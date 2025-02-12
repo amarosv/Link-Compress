@@ -40,10 +40,11 @@ namespace link_compress_api.BL
         /// Función que crea los stats de un click para el link compress dado su id
         /// </summary>
         /// <param name="urlId">ID del link compress</param>
+        /// <param name="ip">Ip del usuario</param>
         /// <returns>Número de filas afectadas</returns>
-        public static async Task<int> createStatsBL(int urlId)
+        public static async Task<int> createStatsBL(int urlId, String ip)
         {
-            return await clsMetodosStatsDAL.createStatsDAL(urlId);
+            return await clsMetodosStatsDAL.createStatsDAL(urlId, ip);
         }
     }
 }

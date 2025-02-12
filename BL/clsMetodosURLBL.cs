@@ -29,10 +29,11 @@ namespace link_compress_api.BL
         /// Función que obtiene el url completo de un link corto mediante su alias
         /// </summary>
         /// <param name="alias">Alias del link corto</param>
+        /// <param name="ip">Ip del usuario</param>
         /// <returns>URL completa</returns>
-        public static String getLongUrlByAliasBL(String alias)
+        public static String getLongUrlByAliasBL(String alias, String ip)
         {
-            return clsMetodosURLDAL.getLongUrlByAliasDAL(alias);
+            return clsMetodosURLDAL.getLongUrlByAliasDAL(alias, ip);
         }
 
         /// <summary>

@@ -120,8 +120,9 @@ namespace link_compress_api.DAL
         /// Función que obtiene el url completo de un link corto mediante su alias
         /// </summary>
         /// <param name="alias">Alias del link corto</param>
+        /// <param name="ip">Ip del usuario</param>
         /// <returns>URL completa</returns>
-        public static String getLongUrlByAliasDAL(String alias)
+        public static String getLongUrlByAliasDAL(String alias, String ip)
         {
             String url = "";
             int clicks = 0;
@@ -154,7 +155,7 @@ namespace link_compress_api.DAL
 
                         // Actualizamos las stats
                         updateClicks(alias, clicks);
-                        clsMetodosStatsDAL.createStatsDAL(id);
+                        clsMetodosStatsDAL.createStatsDAL(id, ip);
                     }
                 }
                 catch (MySqlException ex)

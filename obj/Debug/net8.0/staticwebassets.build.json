@@ -1,12 +1,125 @@
 {
   "Version": 1,
-  "Hash": "Yk0hY7xkjOnUzZozKtyP1fwMRNKFcFwRSh3tQOcsg0M=",
+  "Hash": "UJFMLHJZccf4okE6BHvM4kLzvSLLdfySo2CkJ7MslvI=",
   "Source": "link-compress-api",
   "BasePath": "_content/link-compress-api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": [],
-  "Endpoints": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "link-compress-api\\wwwroot",
+      "Source": "link-compress-api",
+      "ContentRoot": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\",
+      "BasePath": "_content/link-compress-api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
+      "SourceId": "link-compress-api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\",
+      "BasePath": "_content/link-compress-api",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "nw5xwmqahd",
+      "Integrity": "J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 10:06:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU="
+        }
+      ]
+    },
+    {
+      "Route": "index.nw5xwmqahd.html",
+      "AssetFile": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "139"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 10:06:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "nw5xwmqahd"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU="
+        }
+      ]
+    }
+  ]
 }
