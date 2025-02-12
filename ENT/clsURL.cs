@@ -15,19 +15,34 @@
         public int Id
         {
             get { return id; }
-            set { id = value; }
+            set { 
+                if (value > 0)
+                {
+                    id = value;
+                }
+            }
         }
 
         public String Url
         {
             get { return url; }
-            set { url = value; }
+            set { 
+                if (!string.IsNullOrEmpty(value))
+                {
+                    url = value;
+                }
+            }
         }
 
         public int Clicks
         {
             get { return clicks; }
-            set { clicks = value; }
+            set { 
+                if (value >= 0)
+                {
+                    clicks = value;
+                }
+            }
         }
 
         public DateTime CreationDate {
@@ -38,7 +53,12 @@
         public string Alias
         {
             get { return alias; }
-            set { alias = value; }
+            set { 
+                if (!string.IsNullOrEmpty(value))
+                {
+                    alias = value;
+                }
+            }
         }
 
         public bool Privado
