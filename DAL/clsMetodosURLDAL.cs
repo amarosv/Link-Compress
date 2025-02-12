@@ -125,6 +125,7 @@ namespace link_compress_api.DAL
         {
             String url = "";
             int clicks = 0;
+            int id = 0;
 
             using (MySqlConnection conexion = clsConexionDB.getConexion())
             {
@@ -139,7 +140,7 @@ namespace link_compress_api.DAL
                         // Preparar el comando para la consulta SELECT
                         miComando.Parameters.Clear();  // Limpiar parámetros anteriores
                         miComando.Parameters.Add("@alias", MySqlDbType.String).Value = alias;
-                        miComando.CommandText = "SELECT URL, CLICKS FROM URLS WHERE ALIAS = @alias";
+                        miComando.CommandText = "SELECT URL, CLICKS, ID FROM URLS WHERE ALIAS = @alias";
                         miComando.Connection = conexion;
                         miLector = miComando.ExecuteReader();
 
@@ -147,10 +148,13 @@ namespace link_compress_api.DAL
                         {
                             url = (String)miLector["URL"];
                             clicks = (int)miLector["CLICKS"];
+                            id = (int)miLector["ID"];
                         }
                         miLector.Close();
 
+                        // Actualizamos las stats
                         updateClicks(alias, clicks);
+                        clsMetodosStatsDAL.createStatsDAL(id);
                     }
                 }
                 catch (MySqlException ex)

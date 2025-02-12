@@ -118,6 +118,11 @@
                 this.city = city;
             }
         }
+
+        /// <summary>
+        /// Constructor sin parámetros
+        /// </summary>
+        public clsStats() { }
         #endregion
     }
 }
