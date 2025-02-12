@@ -17,6 +17,16 @@ namespace link_compress_api.BL
         }
 
         /// <summary>
+        /// Función que obtiene todas las stats de un link compress dado su alias
+        /// </summary>
+        /// <param name="alias">Alias de un link compress</param>
+        /// <returns>Lista de stats</returns>
+        public static List<clsStats> getAllStatsByAliasBL(String alias)
+        { 
+            return clsMetodosStatsDAL.getAllStatsByAliasDAL(alias);
+        }
+
+        /// <summary>
         /// Función que obtiene unas stats por la ID del link compress
         /// </summary>
         /// <param name="urlId">ID del link compress</param>

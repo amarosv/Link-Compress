@@ -81,7 +81,7 @@ namespace link_compress_api.DAL
                     // Verificamos si la conexión está abierta
                     if (conexion.State == System.Data.ConnectionState.Open)
                     {
-                        miComando.Parameters.Add("@alias", MySqlDbType.String).Value = alias;
+                        miComando.Parameters.Add("@alias", MySqlDbType.String).Value = alias.ToLower();
                         miComando.CommandText = "SELECT * FROM URLS WHERE ALIAS = @alias";
                         miComando.Connection = conexion;
                         miLector = miComando.ExecuteReader();
@@ -139,7 +139,7 @@ namespace link_compress_api.DAL
                     {
                         // Preparar el comando para la consulta SELECT
                         miComando.Parameters.Clear();  // Limpiar parámetros anteriores
-                        miComando.Parameters.Add("@alias", MySqlDbType.String).Value = alias;
+                        miComando.Parameters.Add("@alias", MySqlDbType.String).Value = alias.ToLower();
                         miComando.CommandText = "SELECT URL, CLICKS, ID FROM URLS WHERE ALIAS = @alias";
                         miComando.Connection = conexion;
                         miLector = miComando.ExecuteReader();
@@ -176,9 +176,7 @@ namespace link_compress_api.DAL
         private static void updateClicks(String alias, int clicks)
         {
             // Sumamos un click
-            Console.Write(clicks);
             clicks = clicks + 1;
-            Console.Write(clicks);
             MySqlConnection conexion = new MySqlConnection();
             MySqlCommand miComando = new MySqlCommand();
             MySqlDataReader miLector;
@@ -187,7 +185,7 @@ namespace link_compress_api.DAL
             {
                 conexion = clsConexionDB.getConexion();
 
-                miComando.Parameters.Add("@alias", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = alias;
+                miComando.Parameters.Add("@alias", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = alias.ToLower();
                 miComando.Parameters.Add("@clicks", MySql.Data.MySqlClient.MySqlDbType.Int64).Value = clicks;
 
                 miComando.CommandText = "UPDATE URLS SET CLICKS = @clicks WHERE ALIAS = @alias";
@@ -277,7 +275,7 @@ namespace link_compress_api.DAL
 
                     miComando.Parameters.Add("@url", MySql.Data.MySqlClient.MySqlDbType.Text).Value = url;
 
-                    miComando.Parameters.Add("@alias", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = alias;
+                    miComando.Parameters.Add("@alias", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = alias.ToLower();
 
                     miComando.CommandText = "INSERT INTO URLS (URL, ALIAS) VALUES (@url, @alias)";
 
@@ -309,8 +307,6 @@ namespace link_compress_api.DAL
 
             // Array de letras
             String[] letters = {
-                "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
-                "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
                 "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
             };

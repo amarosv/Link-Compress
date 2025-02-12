@@ -13,7 +13,7 @@ namespace link_compress_api.Controllers
     {
         // GET: api/<URLController>
         [HttpGet]
-        [ApiExplorerSettings(IgnoreApi = true)]  // Esto ocultará la acción en Swagger
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
@@ -70,6 +70,35 @@ namespace link_compress_api.Controllers
                 else
                 {
                     salida = Ok(url);
+                }
+            }
+            catch
+            {
+                salida = BadRequest();
+            }
+
+            return salida;
+        }
+
+        [HttpGet("{alias}/stats")]
+        [SwaggerOperation(
+            Summary = "Obtiene todas las estadísticas de un enlace acortado",
+            Description = "Este método recibe un alias y retorna todas las estadísticas asociadas a este."
+        )]
+        public IActionResult GetStats(String alias)
+        {
+            IActionResult salida;
+            List<clsStats> stats = null;
+            try
+            {
+                stats = clsMetodosStatsBL.getAllStatsByAliasBL(alias);
+                if (stats == null)
+                {
+                    salida = NotFound("No se ha encontrado ninguna estadística para ese link compress");
+                }
+                else
+                {
+                    salida = Ok(stats);
                 }
             }
             catch

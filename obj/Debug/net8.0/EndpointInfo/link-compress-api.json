@@ -5,66 +5,24 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Stats": {
+    "/api/Stats/{id}": {
       "get": {
         "tags": [
           "Stats"
         ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+        "summary": "Obtiene la información de una estadística dado su ID",
+        "description": "Este método recibe un ID y retorna toda la información de la estadística asociada a este.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
-        }
-      },
-      "post": {
-        "tags": [
-          "Stats"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "string"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -72,80 +30,20 @@
         }
       }
     },
-    "/api/Stats/{id}": {
+    "/api/Stats/alias/{alias}": {
       "get": {
         "tags": [
           "Stats"
         ],
+        "summary": "Obtiene todas las estadísticas de un enlace acortado dado su alias",
+        "description": "Este método recibe un alias y retorna todas las estadísticas asociadas a este.",
         "parameters": [
           {
-            "name": "id",
+            "name": "alias",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Stats"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "type": "string"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "type": "string"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Stats"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "string"
             }
           }
         ],
@@ -188,6 +86,30 @@
         ],
         "summary": "Obtiene los datos de un enlace acortado asociado a un alias",
         "description": "Este método recibe un alias y retorna los datos del enlace acortado correspondiente. Si no se encuentran los datos, se devuelve un resultado vacío.",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/URL/{alias}/stats": {
+      "get": {
+        "tags": [
+          "URL"
+        ],
+        "summary": "Obtiene todas las estadísticas de un enlace acortado",
+        "description": "Este método recibe un alias y retorna todas las estadísticas asociadas a este.",
         "parameters": [
           {
             "name": "alias",

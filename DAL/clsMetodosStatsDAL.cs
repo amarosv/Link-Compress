@@ -15,7 +15,6 @@ namespace link_compress_api.DAL
         /// </summary>
         /// <param name="id">ID de las stats a buscar</param>
         /// <returns>Stats</returns>
-
         public static clsStats getStatsByIdDAL(int id)
         {
             clsStats stats = null;
@@ -46,6 +45,61 @@ namespace link_compress_api.DAL
                                 string cityBD = (string)miLector["CITY"];
 
                                 stats = new clsStats(idBD, urlIdBD, clickedDateBD, countryBD, cityBD);
+                            }
+                        }
+                        miLector.Close();
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    // Puedes hacer un manejo de excepciones adecuado aquí
+                    Console.WriteLine($"Error en la base de datos: {ex.Message}");
+                    throw;
+                }
+            }
+
+            return stats;
+        }
+
+        /// <summary>
+        /// Función que obtiene todas las stats de un link compress dado su alias
+        /// </summary>
+        /// <param name="alias">Alias de un link compress</param>
+        /// <returns>Lista de stats</returns>
+        public static List<clsStats> getAllStatsByAliasDAL(String alias)
+        {
+            List<clsStats> stats = new List<clsStats>();
+
+            // Obtenemos el ID del link compress
+            int urlId = clsMetodosURLDAL.findURLByAliasDAL(alias).Id;
+
+            using (MySqlConnection conexion = clsConexionDB.getConexion())
+            {
+                MySqlCommand miComando = new MySqlCommand();
+                MySqlDataReader miLector;
+
+                try
+                {
+                    // Verificamos si la conexión está abierta
+                    if (conexion.State == System.Data.ConnectionState.Open)
+                    {
+                        miComando.Parameters.Add("@urlid", MySqlDbType.Int32).Value = urlId;
+                        miComando.CommandText = "SELECT * FROM STATS WHERE URL_ID = @urlid";
+                        miComando.Connection = conexion;
+                        miLector = miComando.ExecuteReader();
+
+                        if (miLector.HasRows)
+                        {
+                            while (miLector.Read())
+                            {
+                                int idBD = (int)miLector["ID"];
+                                int urlIdBD = (int)miLector["URL_ID"];
+                                DateTime clickedDateBD = (DateTime)miLector["CLICKED_DATE"];
+                                string countryBD = (string)miLector["COUNTRY"];
+                                string cityBD = (string)miLector["CITY"];
+
+                                clsStats stat = new clsStats(idBD, urlIdBD, clickedDateBD, countryBD, cityBD);
+                                stats.Add(stat);
                             }
                         }
                         miLector.Close();
@@ -159,7 +213,10 @@ namespace link_compress_api.DAL
             return numeroFilasAfectadas;
         }
 
-
+        /// <summary>
+        /// Método que obtiene la ubicación
+        /// </summary>
+        /// <returns>Array de String que contiene el país y la ciudad</returns>
         private static async Task<string[]> getLocation()
         {
             string[] data = new string[2];
