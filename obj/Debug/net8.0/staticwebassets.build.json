@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UJFMLHJZccf4okE6BHvM4kLzvSLLdfySo2CkJ7MslvI=",
+  "Hash": "21UTPSIJVOa6O0o1sm6h8ythQvhw/Mxod9Gx2QqDlFQ=",
   "Source": "link-compress-api",
   "BasePath": "_content/link-compress-api",
   "Mode": "Default",
@@ -31,14 +31,59 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "nw5xwmqahd",
-      "Integrity": "J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=",
+      "Fingerprint": "ehs4a70vdd",
+      "Integrity": "zhCXLJMRK926mSDb7ps5CJ0EFrSzP+BSJlsgsiJd2DE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
     }
   ],
   "Endpoints": [
+    {
+      "Route": "index.ehs4a70vdd.html",
+      "AssetFile": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1650"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"zhCXLJMRK926mSDb7ps5CJ0EFrSzP+BSJlsgsiJd2DE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 12 Feb 2025 18:03:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ehs4a70vdd"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-zhCXLJMRK926mSDb7ps5CJ0EFrSzP+BSJlsgsiJd2DE="
+        }
+      ]
+    },
     {
       "Route": "index.html",
       "AssetFile": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
@@ -50,7 +95,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "139"
+          "Value": "1650"
         },
         {
           "Name": "Content-Type",
@@ -58,11 +103,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=\""
+          "Value": "\"zhCXLJMRK926mSDb7ps5CJ0EFrSzP+BSJlsgsiJd2DE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 10:06:23 GMT"
+          "Value": "Wed, 12 Feb 2025 18:03:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -72,52 +117,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU="
-        }
-      ]
-    },
-    {
-      "Route": "index.nw5xwmqahd.html",
-      "AssetFile": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "139"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 12 Feb 2025 10:06:23 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "nw5xwmqahd"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-J/RAljWilxcTBh3ZGFhz51XloeIItK/0Z/j0txG7dNU="
+          "Value": "sha256-zhCXLJMRK926mSDb7ps5CJ0EFrSzP+BSJlsgsiJd2DE="
         }
       ]
     }

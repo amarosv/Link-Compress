@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("link-compress-api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e9cb9d04657b0a97b4b8324b92a95f743943fc9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f30bd9e04ed6dc3bf8613583bda29639f25cbd02")]
 [assembly: System.Reflection.AssemblyProductAttribute("link-compress-api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("link-compress-api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
