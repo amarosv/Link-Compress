@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\link-compress-api.props" />
+</Project>

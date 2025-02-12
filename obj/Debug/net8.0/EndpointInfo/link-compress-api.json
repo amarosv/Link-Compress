@@ -1,0 +1,112 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Link Compress API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/URL/id/{id}": {
+      "get": {
+        "tags": [
+          "URL"
+        ],
+        "summary": "Obtiene los datos de un enlace acortado asociado a un ID",
+        "description": "Este método recibe un ID y retorna los datos del enlace acortado correspondiente. Si no se encuentran los datos, se devuelve un resultado vacío.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/URL/{alias}": {
+      "get": {
+        "tags": [
+          "URL"
+        ],
+        "summary": "Obtiene los datos de un enlace acortado asociado a un alias",
+        "description": "Este método recibe un alias y retorna los datos del enlace acortado correspondiente. Si no se encuentran los datos, se devuelve un resultado vacío.",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/URL": {
+      "post": {
+        "tags": [
+          "URL"
+        ],
+        "summary": "Crea un link compress con un alias aleatorio",
+        "description": "Este método recibe una url y crea un link compress con alias aleatorio que apunta hacia ella",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/URL/alias": {
+      "post": {
+        "tags": [
+          "URL"
+        ],
+        "summary": "Crea un link compress con un alias personalizado",
+        "description": "Este método recibe una url y un alias y crea un link compress con alias personalizado que apunta hacia ella",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "alias",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}
