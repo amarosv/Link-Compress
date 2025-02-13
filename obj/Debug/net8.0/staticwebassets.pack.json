@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\css\\index.css",
+      "PackagePath": "staticwebassets\\css\\index.css"
+    },
+    {
       "Id": "C:\\Users\\amsuv\\Documents\\link-compress\\link-compress-api\\link-compress-api\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },

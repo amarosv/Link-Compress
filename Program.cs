@@ -14,6 +14,18 @@ builder.Services.AddSwaggerGen(options =>
     options.EnableAnnotations();
 });
 
+// Habilitar CORS para TODOS los orígenes
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+        policy =>
+        {
+            policy.AllowAnyOrigin()  // Permite cualquier origen
+                  .AllowAnyMethod()  // Permite cualquier método (GET, POST, PUT, DELETE, etc.)
+                  .AllowAnyHeader(); // Permite cualquier encabezado
+        });
+});
+
 var app = builder.Build();
 
 // Habilitar Swagger

@@ -134,15 +134,25 @@
         ],
         "summary": "Crea un link compress con un alias aleatorio",
         "description": "Este método recibe una url y crea un link compress con alias aleatorio que apunta hacia ella",
-        "parameters": [
-          {
-            "name": "url",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLink"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLink"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLink"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -157,22 +167,25 @@
         ],
         "summary": "Crea un link compress con un alias personalizado",
         "description": "Este método recibe una url y un alias y crea un link compress con alias personalizado que apunta hacia ella",
-        "parameters": [
-          {
-            "name": "url",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "alias",
-            "in": "query",
-            "schema": {
-              "type": "string"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLinkAlias"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLinkAlias"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/clsLinkAlias"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -181,5 +194,32 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "clsLink": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "clsLinkAlias": {
+        "type": "object",
+        "properties": {
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "alias": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
 }

@@ -112,17 +112,17 @@ namespace link_compress_api.Controllers
         // POST api/<URLController>
         [HttpPost]
         [SwaggerOperation(
-            Summary = "Crea un link compress con un alias aleatorio",
-            Description = "Este método recibe una url y crea un link compress con alias aleatorio que apunta hacia ella"
-        )]
-        public IActionResult Post(String url)
+    Summary = "Crea un link compress con un alias aleatorio",
+    Description = "Este método recibe una url y crea un link compress con alias aleatorio que apunta hacia ella"
+)]
+        public IActionResult Post([FromBody] clsLink url)
         {
             IActionResult salida;
             String alias = "";
 
             try
             {
-                alias = clsMetodosURLBL.createLinkCompressBL(url);
+                alias = clsMetodosURLBL.createLinkCompressBL(url.Link);
                 if (string.IsNullOrEmpty(alias))
                 {
                     salida = NotFound("Ha ocurrido un error");
@@ -139,27 +139,28 @@ namespace link_compress_api.Controllers
 
             return salida;
         }
-        
+
+
         [HttpPost("alias")]
         [SwaggerOperation(
             Summary = "Crea un link compress con un alias personalizado",
             Description = "Este método recibe una url y un alias y crea un link compress con alias personalizado que apunta hacia ella"
         )]
-        public IActionResult Post(String url, String alias)
+        public IActionResult Post(clsLinkAlias linkAlias)
         {
             IActionResult salida;
             int numeroFilasAfectadas = 0;
 
             try
             {
-                numeroFilasAfectadas = clsMetodosURLBL.createPersonalizatedLinkCompressBL(url, alias);
+                numeroFilasAfectadas = clsMetodosURLBL.createPersonalizatedLinkCompressBL(linkAlias.Link, linkAlias.Alias);
                 if (numeroFilasAfectadas == 0)
                 {
                     salida = NotFound("Ha ocurrido un error. Prueba con otro alias");
                 }
                 else
                 {
-                    salida = Ok(alias);
+                    salida = Ok(linkAlias.Alias);
                 }
             }
             catch (Exception e)

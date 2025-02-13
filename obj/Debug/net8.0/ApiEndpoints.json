@@ -41,8 +41,8 @@
     "Parameters": [
       {
         "Name": "url",
-        "Type": "System.String",
-        "IsRequired": false
+        "Type": "link_compress_api.ENT.clsLink",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -88,14 +88,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "url",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "alias",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "linkAlias",
+        "Type": "link_compress_api.ENT.clsLinkAlias",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
